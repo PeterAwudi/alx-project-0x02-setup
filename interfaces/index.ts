@@ -41,3 +41,10 @@ export interface UserProps {
   };
 }
 
+export interface CardProps {
+  id: number;
+  title: string;
+  description: string;
+  // Add any other properties you need
+}
+
