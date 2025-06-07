@@ -40,6 +40,7 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onAddPost }) => 
         <ModalCloseButton />
         <ModalBody>
           <form>
+            <input type="hidden" />
             <FormControl>
               <FormLabel>Title</FormLabel>
               <Input 
@@ -71,4 +72,5 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onAddPost }) => 
 };
 
 export default PostModal;
+
 
