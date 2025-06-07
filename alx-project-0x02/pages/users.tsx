@@ -1,10 +1,14 @@
 import React from 'react';
 import UserCard from '../components/common/UserCard';
 
-const Users = ({ users }) => {
+const Users = () => {
   return (
     <div className="max-w-3xl mx-auto p-4">
-      {users.map(user => (
+      {/* Hardcoded users data for now */}
+      {[
+        { id: 1, name: 'John Doe', email: 'john@example.com', address: '123 Main St' },
+        { id: 2, name: 'Jane Doe', email: 'jane@example.com', address: '456 Elm St' },
+      ].map(user => (
         <UserCard
           key={user.id}
           id={user.id}
@@ -18,17 +22,13 @@ const Users = ({ users }) => {
 };
 
 export const getStaticProps = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  const data = await response.json();
-
   return {
-    props: {
-      users: data,
-    },
+    props: {},
   };
 };
 
 export default Users;
+
 
 
 
