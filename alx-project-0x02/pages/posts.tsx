@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from '@/components/layout/Header';
 import PostCard from '../components/common/PostCard';
 
 const Posts = () => {
@@ -11,10 +12,18 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto p-4">
-      {posts.map(post => (
-        <PostCard key={post.id} title={post.title} content={post.body} userId={post.userId} />
-      ))}
+    <div>
+      <Header />
+      <div className="max-w-3xl mx-auto p-4">
+        {posts.map(post => (
+          <PostCard
+            key={post.id}
+            title={post.title}
+            content={post.body}
+            userId={post.userId}
+          />
+        ))}
+      </div>
     </div>
   );
 };
