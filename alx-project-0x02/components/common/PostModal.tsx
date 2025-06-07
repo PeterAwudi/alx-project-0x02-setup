@@ -1,6 +1,19 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button, Input, Textarea } from '@chakra-ui/react';
+import { 
+  Modal, 
+  ModalOverlay, 
+  ModalContent, 
+  ModalHeader, 
+  ModalCloseButton, 
+  ModalBody, 
+  ModalFooter, 
+  Button, 
+  Input, 
+  Textarea, 
+  FormLabel, 
+  FormControl 
+} from '@chakra-ui/react';
 
 interface PostModalProps {
   isOpen: boolean;
@@ -26,17 +39,23 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onAddPost }) => 
         <ModalHeader>Add New Post</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Title"
-          />
-          <Textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Content"
-          />
+          <form>
+            <FormControl>
+              <FormLabel>Title</FormLabel>
+              <Input 
+                type="text" 
+                value={title} 
+                onChange={(e) => setTitle(e.target.value)} 
+              />
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel>Content</FormLabel>
+              <Textarea 
+                value={content} 
+                onChange={(e) => setContent(e.target.value)} 
+              />
+            </FormControl>
+          </form>
         </ModalBody>
         <ModalFooter>
           <Button variant="ghost" onClick={onClose}>
@@ -52,3 +71,4 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onAddPost }) => 
 };
 
 export default PostModal;
+
